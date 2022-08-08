@@ -5,10 +5,11 @@ import ScanContext from "../../contexts/ScanContext";
 
 function Scanner(props) {
   const ref = useRef();
+  const [scanData, setScanData] = useContext(ScanContext);
+
   const [qrOutput, setQrOutput] = useState("currently no QR code recognized");
-  const { isScanning, setIsScanning } = useState(false);
+  const [isScanning, setIsScanning] = useState(false);
   const [isQrFound, setIsQrFound] = useState(false);
-  const [scanData, setContext] = useContext(ScanContext);
 
   useEffect(() => {
     if (ref.current) {
@@ -32,7 +33,9 @@ function Scanner(props) {
       <video ref={ref} className="qr-monitor" playsInline></video>
       <p className="qr-output">{qrOutput}</p>
       {isQrFound ? (
-        <button onClick={setContext(qrOutput)}>Find in Inventory</button>
+        <button onClick={() => setScanData({ qrOutput })}>
+          Find in Inventory
+        </button>
       ) : (
         <button disabled></button>
       )}

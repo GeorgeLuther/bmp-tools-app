@@ -1,3 +1,3 @@
 import { createContext } from "react";
-const ScanContext = createContext({ content: null });
+const ScanContext = createContext({ scanData: null, setScanData: null });
 export default ScanContext;

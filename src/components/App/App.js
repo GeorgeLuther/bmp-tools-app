@@ -8,7 +8,7 @@ const ScanContext = createContext({ content: null });
 function App() {
   const [scanData, setScanData] = useState("");
   return (
-    <ScanContext.Provider value={{ scanData, setScanData }}>
+    <ScanContext.Provider value={[scanData, setScanData]}>
       <div className="App">
         <BullLogo />
         <Scanner scanData={scanData} setScanData={setScanData} />
