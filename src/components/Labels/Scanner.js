@@ -5,9 +5,8 @@ import ScanContext from "../../contexts/ScanContext";
 
 function Scanner(props) {
   const ref = useRef();
-  const [scanData, setScanData] = useContext(ScanContext);
-
   const [qrOutput, setQrOutput] = useState("currently no QR code recognized");
+  //TODO: make a single state for no camera, isScanning, qrFound?
   const [isScanning, setIsScanning] = useState(false);
   const [isQrFound, setIsQrFound] = useState(false);
 
@@ -33,7 +32,7 @@ function Scanner(props) {
       <video ref={ref} className="qr-monitor" playsInline></video>
       <p className="qr-output">{qrOutput}</p>
       {isQrFound ? (
-        <button onClick={() => setScanData({ qrOutput })}>
+        <button onClick={() => props.setScanData(qrOutput)}>
           Find in Inventory
         </button>
       ) : (
