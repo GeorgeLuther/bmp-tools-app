@@ -1,6 +1,6 @@
 import { useState } from "react";
 function ItemSearch(props) {
-  return <p>{props.scanData}</p>;
+  return <input></input>;
 }
 export default ItemSearch;
 // searchbar

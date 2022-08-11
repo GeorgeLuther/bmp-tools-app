@@ -21,10 +21,13 @@ const AddItem = () => {
       partName: item.partName,
       bin: item.bin,
       zone: item.zone,
+      type: item.type,
       quantity: item.zone,
       lots: item.lots,
+      //lot { lotNumber: 0, quantity: 0, vendor: Unknown, job: 23542, location: ? }
       status: item.status,
       description: item.description,
+      // relatedJobs: item.relatedJobs,
     };
 
     InventoryService.create(data)
